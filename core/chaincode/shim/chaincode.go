@@ -508,7 +508,7 @@ func (stub *ChaincodeStub) DeleteTable(tableName string) error {
 	}
 
 	// Delete rows
-	iter, err := stub.RangeQueryState(tableNameKey+"1", tableNameKey+":")
+	iter, err := stub.RangeQueryState(tableNameKey+"0", tableNameKey+":")
 	if err != nil {
 		return fmt.Errorf("Error deleting table: %s", err)
 	}
@@ -604,7 +604,7 @@ func (stub *ChaincodeStub) GetRows(tableName string, key []Column) (<-chan Row, 
 		return rows, nil
 	}
 
-	iter, err := stub.RangeQueryState(keyString+"1", keyString+":")
+	iter, err := stub.RangeQueryState(keyString+"0", keyString+":")
 	if err != nil {
 		return nil, fmt.Errorf("Error fetching rows: %s", err)
 	}
